@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swink Tattoo Studio | Piercing | Nail Art</title>
+    <!-- Tailwind CSS for rapid prototyping -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Option A: Syne & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration mapped to your design system -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#0B0C0E',
+                        graphite: '#16181D',
+                        gunmetal: '#262A33',
+                        crimson: '#E63946',
+                        gold: '#D4AF37',
+                        chalk: '#F3F4F6',
+                        silver: '#9CA3AF',
+                    },
+                    fontFamily: {
+                        heading: ['Syne', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles mapped to your UI Guidelines -->
+    <style>
+        body {
+            background-color: #0B0C0E;
+            color: #9CA3AF; /* Text Secondary */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        /* Typography Scale */
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Syne', sans-serif;
+            color: #F3F4F6; /* Text Primary */
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem); 
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        h3 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 600;
+        }
+        p.body-text {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Interactive Accents */
+        .btn-primary {
+            background-color: #E63946;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid #262A33;
+            color: #F3F4F6;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #16181D;
+            border-color: #9CA3AF;
+        }
+
+        /* Forms */
+        .form-input {
+            background-color: #0B0C0E;
+            border: 1px solid #262A33;
+            color: #F3F4F6;
+            transition: border-color 0.2s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #D4AF37;
+        }
+
+        /* SVG Google icon */
+        .google-icon {
+            fill: currentcolor;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-crimson selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gunmetal bg-void/70 backdrop-blur-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center py-2">
+                    <img src="logo.png" alt="Swink Tattoo Studio Logo" class="h-16 w-auto object-contain drop-shadow-md">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#services" class="text-silver hover:text-chalk transition-colors px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#artists" class="text-silver hover:text-chalk transition-colors px-3 py-2 text-sm font-medium">Artists</a>
+                        <a href="#reviews" class="text-silver hover:text-chalk transition-colors px-3 py-2 text-sm font-medium">Reviews</a>
+                        <a href="#booking" class="btn-primary px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. The Hero Section -->
+    <div class="relative bg-void min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image simulating video loop / high contrast editorial photo -->
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover opacity-60 mix-blend-luminosity" src="hero-bg.jpg" alt="Tattoo artist background">
+            <div class="absolute inset-0 bg-gradient-to-b from-void/50 via-void/30 to-void"></div>
+            <!-- Radial gradient to center focus -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-void/50 to-void/90"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <p class="text-gold eyebrow mb-6">Tattoo • Piercing • Nail Art</p>
+            <h1 class="mb-8 max-w-4xl mx-auto drop-shadow-lg">
+                Artistry in <span class="text-transparent bg-clip-text bg-gradient-to-r from-chalk to-silver">Every Detail</span>
+            </h1>
+            <p class="text-lg md:text-xl text-silver max-w-2xl mx-auto mb-10 leading-relaxed font-body">
+                A modern dark, artisanal space bringing together the raw energy of custom tattoo culture, hygienic body piercings, and high-fashion nail artistry.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#booking" class="btn-primary w-full sm:w-auto px-10 py-4 rounded text-base font-bold uppercase tracking-wider text-center">
+                    Book an Appointment
+                </a>
+                <a href="#services" class="btn-secondary w-full sm:w-auto px-10 py-4 rounded text-base font-bold uppercase tracking-wider text-center">
+                    Explore Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Social Proof & Google Reviews -->
+    <div id="reviews" class="py-20 bg-void">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- GMB Snapshot Badge -->
+            <div class="flex items-center justify-center mb-12">
+                <div class="bg-graphite border border-gunmetal rounded-full px-6 py-3 flex items-center space-x-3 shadow-lg">
+                    <svg class="w-5 h-5 text-chalk" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="font-heading font-bold text-chalk">5.0</span>
+                    <span class="text-gold tracking-widest text-sm">★★★★★</span>
+                    <span class="text-silver text-sm font-medium border-l border-gunmetal pl-3">(343 Google Reviews)</span>
+                </div>
+            </div>
+
+            <!-- Bento Box / Masonry Layout for Reviews -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="reviews-container">
+                <!-- Review 1 (Tall) -->
+                <div class="bg-graphite border border-gunmetal p-8 rounded-xl flex flex-col justify-between md:row-span-2 shadow-sm transition-transform hover:-translate-y-1 duration-300">
+                    <div>
+                        <div class="flex text-gold mb-4 text-sm">★★★★★</div>
+                        <p class="text-silver italic leading-relaxed text-lg">
+                            "Absolutely unreal experience. The attention to detail in my fine-line piece is mind-blowing. The studio is impeccably clean, dark, and stylish. It doesn't feel like a typical parlor, it feels like a high-end art gallery."
+                        </p>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-void border border-gunmetal flex items-center justify-center font-bold text-chalk">J</div>
+                            <span class="font-heading font-semibold text-chalk">Jordan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-graphite border border-gunmetal p-6 rounded-xl shadow-sm transition-transform hover:-translate-y-1 duration-300">
+                    <div class="flex text-gold mb-3 text-xs">★★★★★</div>
+                    <p class="text-silver italic leading-relaxed text-sm">
+                        "Got my septum pierced here and the clinical precision is real. Completely painless, everything was sterile, and the implant-grade jewelry selection is stunning."
+                    </p>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-void border border-gunmetal flex items-center justify-center font-bold text-chalk text-xs">M</div>
+                        <span class="font-heading font-semibold text-chalk text-sm">Maya</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-graphite border border-gunmetal p-6 rounded-xl shadow-sm transition-transform hover:-translate-y-1 duration-300">
+                    <div class="flex text-gold mb-3 text-xs">★★★★★</div>
+                    <p class="text-silver italic leading-relaxed text-sm">
+                        "Lust For Nails inside Swink is a game-changer. The editorial nail art is exactly what I wanted. Edge combined with elegance."
+                    </p>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-void border border-gunmetal flex items-center justify-center font-bold text-chalk text-xs">A</div>
+                        <span class="font-heading font-semibold text-chalk text-sm">Alex</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Services & Specialities -->
+    <div id="services" class="py-24 bg-void border-t border-gunmetal relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <p class="text-crimson eyebrow mb-2">Our Craft</p>
+                <h2>Services & Specialties</h2>
+            </div>
+
+            <!-- 3 Column Interactive Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Tattoos -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl h-80 bg-graphite border border-gunmetal relative mb-6">
+                        <!-- Image transitions from grayscale to color and scales up slightly -->
+                        <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" src="tattoo-work.jpg" alt="Tattoos">
+                        <div class="absolute inset-0 bg-gradient-to-t from-void to-transparent opacity-60"></div>
+                        <h3 class="absolute bottom-6 left-6 text-2xl">Tattoos</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Fine Line</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Traditional</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Realism</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Blackwork</a>
+                    </div>
+                </div>
+
+                <!-- Piercing -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl h-80 bg-graphite border border-gunmetal relative mb-6">
+                        <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" src="https://images.unsplash.com/photo-1610053913076-2e9196b27e4e?auto=format&fit=crop&q=80" alt="Piercing">
+                        <div class="absolute inset-0 bg-gradient-to-t from-void to-transparent opacity-60"></div>
+                        <h3 class="absolute bottom-6 left-6 text-2xl">Piercing</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Ear Styling</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Facial</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Body</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-chalk transition-colors border-b border-transparent hover:border-chalk pb-0.5">Jewelry Upgrade</a>
+                    </div>
+                </div>
+
+                <!-- Nail Art (Lust for Nails) -->
+                <!-- Slight gold border accent to differentiate it smoothly -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl h-80 bg-graphite border border-gunmetal group-hover:border-gold/30 relative mb-6 transition-colors duration-500">
+                        <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80" alt="Nail Art">
+                        <div class="absolute inset-0 bg-gradient-to-t from-void to-transparent opacity-60"></div>
+                        <div class="absolute top-4 right-4 px-2 py-1 bg-void/80 backdrop-blur-sm text-gold text-[10px] font-bold uppercase tracking-wider rounded border border-gold/20">Lust For Nails</div>
+                        <h3 class="absolute bottom-6 left-6 text-2xl">Nail Art</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="text-sm text-silver hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-0.5">Extensions</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-0.5">Editorial Art</a>
+                        <span class="text-gunmetal">•</span>
+                        <a href="#" class="text-sm text-silver hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-0.5">Gel Overlays</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. The Artists -->
+    <div id="artists" class="py-24 bg-void border-t border-gunmetal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <p class="text-silver eyebrow mb-2">The Collective</p>
+                    <h2>Meet the Artists</h2>
+                </div>
+                <a href="#" class="text-gold font-bold text-sm uppercase tracking-wider hover:text-chalk transition-colors group flex items-center">
+                    View All Portfolios 
+                    <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Artist 1 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-lg bg-graphite">
+                    <img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:opacity-40" src="artist-profile.jpg" alt="Artist">
+                    <!-- Hover overlay -->
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h4 class="text-xl font-bold text-chalk font-heading mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Arni</h4>
+                        <p class="text-sm text-crimson font-medium mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Lead Artist (Tattoo & Piercing)</p>
+                        <button class="btn-secondary w-full py-2 text-xs translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150">View Portfolio</button>
+                    </div>
+                </div>
+                
+                <!-- Artist 2 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-lg bg-graphite">
+                    <img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:opacity-40" src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80" alt="Artist">
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h4 class="text-xl font-bold text-chalk font-heading mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Lena</h4>
+                        <p class="text-sm text-gold font-medium mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Piercing Specialist</p>
+                        <button class="btn-secondary w-full py-2 text-xs translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150">View Portfolio</button>
+                    </div>
+                </div>
+
+                <!-- Artist 3 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-lg bg-graphite">
+                    <img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:opacity-40" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" alt="Artist">
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h4 class="text-xl font-bold text-chalk font-heading mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Mia</h4>
+                        <p class="text-sm text-silver font-medium mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Fine-Line</p>
+                        <button class="btn-secondary w-full py-2 text-xs translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150">View Portfolio</button>
+                    </div>
+                </div>
+
+                <!-- Artist 4 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-lg bg-graphite border border-gold/10">
+                    <img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:opacity-40" src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&q=80" alt="Artist">
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="mb-1"><span class="px-2 py-0.5 bg-gold/10 text-gold text-[9px] font-bold uppercase rounded border border-gold/20">Lust For Nails</span></div>
+                        <h4 class="text-xl font-bold text-chalk font-heading mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Chloe</h4>
+                        <p class="text-sm text-gold font-medium mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Nail Art Director</p>
+                        <button class="btn-secondary w-full py-2 text-xs translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150">View Portfolio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Integrated Booking Engine -->
+    <div id="booking" class="relative py-24 bg-void border-t border-gunmetal flex items-center justify-center">
+        <!-- Abstract Background Shape -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-crimson/5 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <h2>Request an Appointment</h2>
+                <p class="text-silver mt-3 font-body">Tell us your vision, and we'll match you with the right artist.</p>
+            </div>
+
+            <!-- Frosted Glass Container -->
+            <div class="bg-graphite/80 backdrop-blur-xl border border-gunmetal rounded-2xl p-6 sm:p-10 shadow-2xl">
+                <!-- Step Indicator -->
+                <div class="flex items-center justify-between mb-8 pb-8 border-b border-gunmetal">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-crimson text-white flex items-center justify-center font-bold text-sm">1</div>
+                        <span class="text-chalk font-semibold text-sm hidden sm:block">Details</span>
+                    </div>
+                    <div class="h-px bg-gunmetal flex-1 mx-4"></div>
+                    <div class="flex items-center space-x-3 opacity-50">
+                        <div class="w-8 h-8 rounded-full bg-void border border-silver text-silver flex items-center justify-center font-bold text-sm">2</div>
+                        <span class="text-silver font-semibold text-sm hidden sm:block">Uploads</span>
+                    </div>
+                    <div class="h-px bg-gunmetal flex-1 mx-4"></div>
+                    <div class="flex items-center space-x-3 opacity-50">
+                        <div class="w-8 h-8 rounded-full bg-void border border-silver text-silver flex items-center justify-center font-bold text-sm">3</div>
+                        <span class="text-silver font-semibold text-sm hidden sm:block">Contact</span>
+                    </div>
+                </div>
+
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Select Service -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-chalk uppercase tracking-wide eyebrow">Service</label>
+                            <select class="form-input w-full p-4 rounded-lg appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select a service</option>
+                                <option>Custom Tattoo</option>
+                                <option>Piercing</option>
+                                <option>Nail Art (Lust for Nails)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Select Artist -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-chalk uppercase tracking-wide eyebrow">Preferred Artist</label>
+                            <select class="form-input w-full p-4 rounded-lg appearance-none cursor-pointer">
+                                <option value="" selected>First Available</option>
+                                <option>Arni (Tattoo & Piercing)</option>
+                                <option>Lena (Piercing)</option>
+                                <option>Chloe (Nails)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-chalk uppercase tracking-wide eyebrow">Briefly describe your idea</label>
+                        <textarea class="form-input w-full p-4 rounded-lg h-32 resize-none" placeholder="Placement, size, style, etc..."></textarea>
+                    </div>
+
+                    <div class="pt-4 flex justify-end">
+                        <button type="button" class="btn-primary px-8 py-3 rounded-lg font-bold uppercase tracking-wider text-sm flex items-center group">
+                            Next Step 
+                            <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. The Footer & GMB Integration -->
+    <footer class="bg-graphite border-t border-gunmetal">
+        <!-- Top Half: Map & Info -->
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Map Placeholder (Dark Mode styled) -->
+            <div class="h-64 lg:h-auto bg-void relative border-b lg:border-b-0 lg:border-r border-gunmetal overflow-hidden flex items-center justify-center">
+                <!-- Using a dark abstract map placeholder -->
+                <div class="absolute inset-0 bg-[#0B0C0E] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTYxODFEIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')] opacity-20"></div>
+                <div class="z-10 text-center">
+                    <svg class="w-8 h-8 text-crimson mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <p class="text-sm font-semibold text-chalk tracking-widest uppercase">Jay Bheema Nagar</p>
+                </div>
+            </div>
+
+            <!-- GMB Details -->
+            <div class="p-10 lg:p-16 flex flex-col justify-center">
+                <span class="font-heading font-extrabold text-3xl tracking-tighter text-chalk mb-8">SWINK.</span>
+                
+                <div class="space-y-6">
+                    <!-- Address -->
+                    <div>
+                        <h5 class="text-gold eyebrow mb-1">Studio Location</h5>
+                        <p class="text-chalk">36, 20th Main Road, Jay Bheema Nagar,<br>1st Stage, BTM Layout 1st Stage,<br>Bengaluru, Karnataka 560028</p>
+                    </div>
+                    
+                    <!-- Hours -->
+                    <div>
+                        <h5 class="text-gold eyebrow mb-1">Working Hours</h5>
+                        <p class="text-silver">Open Daily: 11:00 AM - 9:00 PM</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h5 class="text-gold eyebrow mb-1">Contact</h5>
+                        <p class="text-chalk font-medium">+91 90350 77840</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-gunmetal flex items-center justify-between">
+                    <a href="https://share.google/Nk3AHlrhOrTYXTxBU" target="_blank" class="btn-secondary px-6 py-2 rounded text-xs font-bold uppercase tracking-wider flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        Get Directions
+                    </a>
+                    
+                    <div class="flex space-x-4 text-silver">
+                        <a href="#" class="hover:text-chalk transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.081-.205-7.699-2.159-10.141-5.114-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                        <a href="#" class="hover:text-chalk transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-xs text-gunmetal font-medium uppercase tracking-widest">
+            &copy; 2026 Swink Studio. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Google Places API Integration (Method 3) -->
+    <script>
+        // Exact Place ID provided for Swink Tattoo Studio
+        const PLACE_ID = 'ChIJjfvULLUVrjsRqXg6KFVQRRs';
+        const API_KEY = 'YOUR_GOOGLE_API_KEY'; // <-- Drop your generated API key here
+        
+        async function fetchGoogleReviews() {
+            if (API_KEY === 'YOUR_GOOGLE_API_KEY') {
+                console.log('Google Places API key not set. Showing the hardcoded fallback reviews.');
+                return;
+            }
+
+            try {
+                // IMPORTANT: For production, this request should ideally route through your backend (e.g., Next.js API route) 
+                // to avoid exposing your API key and to handle CORS correctly. 
+                // Using a CORS proxy here as an example if fetching directly from client-side JS.
+                const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=reviews,rating,user_ratings_total&key=${API_KEY}`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.result && data.result.reviews) {
+                    // Filter logic as requested
+                    const fiveStarReviews = data.result.reviews.filter(review => review.rating === 5);
+                    renderReviews(fiveStarReviews);
+                }
+            } catch (error) {
+                console.error('Error fetching Google Reviews:', error);
+            }
+        }
+
+        function renderReviews(reviews) {
+            const container = document.getElementById('reviews-container');
+            if (!container || reviews.length === 0) return;
+
+            container.innerHTML = ''; // Clear fallback HTML
+
+            reviews.slice(0, 3).forEach((review, index) => {
+                const isTall = index === 0 ? 'md:row-span-2' : '';
+                const authorInitial = review.author_name ? review.author_name.charAt(0).toUpperCase() : 'A';
+                const authorName = review.author_name ? review.author_name.split(' ')[0] : 'Anonymous'; 
+                
+                const cardHTML = `
+                <div class="bg-graphite border border-gunmetal p-6 md:p-8 rounded-xl flex flex-col justify-between ${isTall} shadow-sm transition-transform hover:-translate-y-1 duration-300">
+                    <div>
+                        <div class="flex text-gold mb-3 md:mb-4 text-xs md:text-sm">★★★★★</div>
+                        <p class="text-silver italic leading-relaxed text-sm md:text-lg">
+                            "${review.text}"
+                        </p>
+                    </div>
+                    <div class="mt-6 md:mt-8 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-void border border-gunmetal flex items-center justify-center font-bold text-chalk text-xs md:text-base">${authorInitial}</div>
+                            <span class="font-heading font-semibold text-chalk text-sm md:text-base">${authorName}</span>
+                        </div>
+                        <!-- Verified Google G Logo -->
+                        <svg class="w-4 h-4 text-chalk opacity-50" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    </div>
+                </div>`;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // Initialize script on load
+        document.addEventListener('DOMContentLoaded', fetchGoogleReviews);
+    </script>
+</body>
+</html>
